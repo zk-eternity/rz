@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zk.dao.RoleDAO">
+
+    <select id="queryRoleByName" resultType="java.lang.String">
+        select rzdb.sys_role.role_name from sys_user
+              JOIN rzdb.sys_user_role on sys_user.user_id = rzdb.sys_user_role.user_id
+              JOIN rzdb.sys_role on rzdb.sys_role.role_id = rzdb.sys_user_role.role_id
+        where username=#{username}
+    </select>
+
+</mapper>
